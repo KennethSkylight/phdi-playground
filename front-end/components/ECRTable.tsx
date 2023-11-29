@@ -3,7 +3,25 @@ import {
 } from '@trussworks/react-uswds'
 import _ from 'lodash';
 
-export default function ECRTable({ ecrData }) {
+// Define the structure of ecrData
+interface ECRData {
+    processed_values: {
+        parsed_values: {
+            patient_id: string;
+            first_name: string;
+            last_name: string;
+            gender: string;
+            birth_date: string;
+            // Add additional fields as necessary
+        };
+    };
+}
+
+interface ECRTableProps {
+    ecrData: ECRData;
+}
+
+export default function ECRTable({ ecrData }: ECRTableProps) {
     const options = ['patient_id', 'first_name', 'last_name', 'gender', 'birth_date']
 
 
