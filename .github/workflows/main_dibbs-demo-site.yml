@@ -12,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front-end
 
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +41,9 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front-end
     needs: build
     environment:
       name: 'Production'
